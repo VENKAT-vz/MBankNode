@@ -24,7 +24,7 @@ const loginSchema: Schema = new mongoose.Schema({
     password: { 
         type: String, 
         required: true,
-        minlength: [8, 'Your password must be at least 8 characters long'], // Fixed typo here
+        minlength: [8, 'Your password must be at least 8 characters long'], 
         select: false
     },
     role: { 
@@ -36,7 +36,7 @@ const loginSchema: Schema = new mongoose.Schema({
 // Pre-save middleware to hash the password
 loginSchema.pre<ILogin>('save', async function(next) {
     if (!this.isModified('password')) {
-        return next(); // Use return to skip further execution
+        return next(); 
     }
     
     try {
@@ -44,7 +44,7 @@ loginSchema.pre<ILogin>('save', async function(next) {
         this.password = await bcrypt.hash(this.password, saltRounds);
         next(); // Proceed to save
     } catch (error) {
-        next(error as Error); // Pass any error to the next middleware
+        next(error as Error); 
     }
 });
 

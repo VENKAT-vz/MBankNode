@@ -2,7 +2,7 @@
   "name": "maverick-bank-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.ts",
   "scripts": {
     "start": "SET NODE_ENV=production & nodemon src/app.ts",
     "dev": "nodemon src/app.ts",

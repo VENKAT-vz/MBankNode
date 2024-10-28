@@ -15,7 +15,7 @@ app.use('/api/',router);
 const mongodbUrl=process.env.MONGODB_URL as string;
 
 mongoose.connect(mongodbUrl)
-    .then(()=>console.log("MongoDB local got connected"))
+    .then(()=>console.log("MongoDB cloud got connected"))
     .catch(err=>console.error("Error connecting to the mongodb",err));
 
 app.listen(process.env.PORT,()=>console.log("connected to port 8181"));
